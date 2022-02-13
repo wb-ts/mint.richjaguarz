@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState , useRef} from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import {useDispatch, useSelector} from "react-redux";
@@ -8,7 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AppSectionMain(props) {
     const [answered , setAnswered] = useState(0);
-    const [walletConnected, setWalletConnected] = useState(false)
+    const section1 = useRef(null);
+    const section2 = useRef(null);
+
+    const [walletConnected, setWalletConnected] = useState(false);
     // const [fallback, setFallback] = useState('')
     // const [mintCount, setMintCount] = useState(1)
     // const [mintPrice, setMintPrice] = useState(1)
@@ -83,6 +86,14 @@ function AppSectionMain(props) {
     //     }
     // }, [blockchain.errorMsg])
 
+    const handleClick = (index) => {
+        setAnswered(index);
+    }
+
+    useEffect (()=> {
+        window.scrollTo(0, innerHeight+100);
+    },[answered])
+
     return (
         <div className='App'>
             <div className='Home'>
@@ -130,33 +141,36 @@ function AppSectionMain(props) {
                 </div>
             </div>
             <div className='FAQ'>
-                <h2 className='size2 title future'>How To Mint</h2>
-                <div>
-                    <h3 className='size3'>Do you already have a metamask wallet?</h3>
-                    <Accordion >
-                        <Accordion.Item eventKey="1">
-                            <Accordion.Header onClick={()=>{ setAnswered(1)}}>Yes</Accordion.Header>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey="2">
-                            <Accordion.Header onClick={()=>{ setAnswered(2)}}>No</Accordion.Header>
-                            <Accordion.Body>
-                                Install Metamask On Your Phone OR Browser
-                            </Accordion.Body>
-                        </Accordion.Item>
-                    </Accordion>
+                <div ref={section1} >
+                    <h2 className='size2 title future' >How To Mint</h2>
+                    <div>
+                        <h3 className='size3'>Do you already have a metamask wallet?</h3>
+                        <Accordion >
+                            <Accordion.Item eventKey="1">
+                                <Accordion.Header onClick={()=>{ handleClick(1)}}>Yes</Accordion.Header>
+                            </Accordion.Item>
+                            <Accordion.Item eventKey="2">
+                                <Accordion.Header onClick={()=>{ handleClick(2)}}>No</Accordion.Header>
+                                <Accordion.Body>
+                                    Install Metamask On Your Phone OR Browser
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        </Accordion>
+                    </div>
                 </div>
+                <div ref={section2}>
                 {
                     answered >= 1 ?<div>
-                        <h3 className='size3'>Have Enough Funds On Metamask</h3>
+                        <h3 className='size3' >Have Enough Funds On Metamask</h3>
                         <Accordion  >
                             <Accordion.Item eventKey="1" >
-                                <Accordion.Header onClick={()=>{ setAnswered(3)}}>Yes</Accordion.Header>
+                                <Accordion.Header onClick={()=>{ handleClick(3)}}>Yes</Accordion.Header>
                                 <Accordion.Body>
                                     Connect Wallet and Buy
                                 </Accordion.Body>
                             </Accordion.Item>
                             <Accordion.Item eventKey="2" >
-                                <Accordion.Header onClick={()=>{ setAnswered(4)}}>No</Accordion.Header>
+                                <Accordion.Header onClick={()=>{ handleClick(4)}}>No</Accordion.Header>
                                 <Accordion.Body>
                                     Buy on Metamask using Credit card or apple pay OR transfer from an existing wallet
                                 </Accordion.Body>
@@ -164,6 +178,7 @@ function AppSectionMain(props) {
                         </Accordion>
                     </div> : ""
                 }
+                </div>
                 
             </div>
             
