@@ -130,15 +130,15 @@ function AppSectionMain(props) {
                 </div>
             </div>
             <div className='FAQ'>
+                <h2 className='size2 title future'>How To Mint</h2>
                 <div>
-                    <h3 className='size3'>Do You Have Metamask?</h3>
+                    <h3 className='size3'>Do you already have a metamask wallet?</h3>
                     <Accordion >
-                        <Accordion.Item eventKey="0">
-                            <Accordion.Header onClick={()=>{ answered == 1 ? setAnswered(0) : setAnswered(1)}}>Yes</Accordion.Header>
-                            
-                        </Accordion.Item>
                         <Accordion.Item eventKey="1">
-                            <Accordion.Header onClick={()=>{ answered == 2 ? setAnswered(0) : setAnswered(2)}}>No</Accordion.Header>
+                            <Accordion.Header onClick={()=>{ setAnswered(1)}}>Yes</Accordion.Header>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="2">
+                            <Accordion.Header onClick={()=>{ setAnswered(2)}}>No</Accordion.Header>
                             <Accordion.Body>
                                 Install Metamask On Your Phone OR Browser
                             </Accordion.Body>
@@ -146,17 +146,17 @@ function AppSectionMain(props) {
                     </Accordion>
                 </div>
                 {
-                    answered > 0 ?<div>
+                    answered >= 1 ?<div>
                         <h3 className='size3'>Have Enough Funds On Metamask</h3>
-                        <Accordion >
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header onClick={()=>setAnswered(3)}>Yes</Accordion.Header>
+                        <Accordion  >
+                            <Accordion.Item eventKey="1" >
+                                <Accordion.Header onClick={()=>{ setAnswered(3)}}>Yes</Accordion.Header>
                                 <Accordion.Body>
                                     Connect Wallet and Buy
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item eventKey="1">
-                                <Accordion.Header onClick={()=>setAnswered(4)}>No</Accordion.Header>
+                            <Accordion.Item eventKey="2" >
+                                <Accordion.Header onClick={()=>{ setAnswered(4)}}>No</Accordion.Header>
                                 <Accordion.Body>
                                     Buy on Metamask using Credit card or apple pay OR transfer from an existing wallet
                                 </Accordion.Body>
