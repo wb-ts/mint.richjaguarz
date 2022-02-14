@@ -320,25 +320,25 @@ iframe {
 	transform: rotate(90deg) !important;
 
 }
-.accordion-button:focus{
+.selected {
 	background: #0c7637 !important
 }
 .accordion-collapse {
 	border-top: 2px outset rgba(0, 255, 100, 0.38);
 }
-.download-link {
+.link {
 	color: rgba(0, 255, 100, 0.38);
 	text-decoration: none;
 }
-.download-link:hover {
+.link:hover {
 	color: rgba(0, 255, 100, 0.38);
 }
-.download-link:visited {
+.link:visited {
 	color: rgba(0, 255, 100, 0.38);
 }
-.download-link:focus {
+.link:focus {
 	color: rgba(0, 255, 100, 0.38);
 }
-.download-link:active {
+.link:active {
 	color: rgba(0, 255, 100, 0.38);
 }

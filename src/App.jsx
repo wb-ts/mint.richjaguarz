@@ -96,9 +96,11 @@ function AppSectionMain(props) {
         let unSelected = document.querySelectorAll('[aria-expanded*="false"]');
         for(let i=0;i<selected.length;i++){
             selected[i].setAttribute("disabled","true");
+            selected[i].classList.add("selected");
         }
         for(let i=0;i<unSelected.length;i++){
             unSelected[i].removeAttribute("disabled")
+            unSelected[i].classList.remove("selected");
         }
     },[answered])
 
@@ -160,7 +162,7 @@ function AppSectionMain(props) {
                             <Accordion.Item eventKey="2">
                                 <Accordion.Header onClick={()=>{ handleClick(2)}}>No</Accordion.Header>
                                 <Accordion.Body>
-                                Install Metamask On Your Phone Or Browser Through The Official Link <a href='https://metamask.io/download/' className='download-link'>HERE</a> and Create Your ETH Wallet
+                                Install Metamask On Your Phone Or Browser Through The Official Link <a href='https://metamask.io/download/' className='link'>HERE</a> and Create Your ETH Wallet
                                 </Accordion.Body>
                             </Accordion.Item>
                         </Accordion>
@@ -174,7 +176,9 @@ function AppSectionMain(props) {
                             <Accordion.Item eventKey="1" >
                                 <Accordion.Header onClick={()=>{ handleClick(3)}}>Yes</Accordion.Header>
                                 <Accordion.Body>
-                                    Connect Wallet and Buy
+                                    <a href='#' className='link' onClick={(e) => {
+                                    alert(e);
+                                }} >Connect Wallet</a> and Buy
                                 </Accordion.Body>
                             </Accordion.Item>
                             <Accordion.Item eventKey="2" >
