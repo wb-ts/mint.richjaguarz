@@ -92,6 +92,14 @@ function AppSectionMain(props) {
 
     useEffect (()=> {
         if(answered) window.scrollTo(0, innerHeight+100);
+        let selected = document.querySelectorAll('[aria-expanded*="true"]');
+        let unSelected = document.querySelectorAll('[aria-expanded*="false"]');
+        for(let i=0;i<selected.length;i++){
+            selected[i].setAttribute("disabled","true");
+        }
+        for(let i=0;i<unSelected.length;i++){
+            unSelected[i].removeAttribute("disabled")
+        }
     },[answered])
 
     return (
