@@ -321,8 +321,24 @@ iframe {
 
 }
 .accordion-button:focus{
-	background: #051a0f !important
+	background: #0c7637 !important
 }
 .accordion-collapse {
 	border-top: 2px outset rgba(0, 255, 100, 0.38);
+}
+.download-link {
+	color: rgba(0, 255, 100, 0.38);
+	text-decoration: none;
+}
+.download-link:hover {
+	color: rgba(0, 255, 100, 0.38);
+}
+.download-link:visited {
+	color: rgba(0, 255, 100, 0.38);
+}
+.download-link:focus {
+	color: rgba(0, 255, 100, 0.38);
+}
+.download-link:active {
+	color: rgba(0, 255, 100, 0.38);
 }

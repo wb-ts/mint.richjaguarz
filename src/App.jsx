@@ -91,7 +91,7 @@ function AppSectionMain(props) {
     }
 
     useEffect (()=> {
-        window.scrollTo(0, innerHeight+100);
+        if(answered) window.scrollTo(0, innerHeight+100);
     },[answered])
 
     return (
@@ -152,7 +152,7 @@ function AppSectionMain(props) {
                             <Accordion.Item eventKey="2">
                                 <Accordion.Header onClick={()=>{ handleClick(2)}}>No</Accordion.Header>
                                 <Accordion.Body>
-                                    Install Metamask On Your Phone OR Browser
+                                Install Metamask On Your Phone Or Browser Through The Official Link <a href='https://metamask.io/download/' className='download-link'>HERE</a> and Create Your ETH Wallet
                                 </Accordion.Body>
                             </Accordion.Item>
                         </Accordion>
@@ -161,7 +161,7 @@ function AppSectionMain(props) {
                 <div ref={section2}>
                 {
                     answered >= 1 ?<div>
-                        <h3 className='size3' >Have Enough Funds On Metamask</h3>
+                        <h3 className='size3' >Do You Have Enough Funds On Metamask?</h3>
                         <Accordion  >
                             <Accordion.Item eventKey="1" >
                                 <Accordion.Header onClick={()=>{ handleClick(3)}}>Yes</Accordion.Header>
