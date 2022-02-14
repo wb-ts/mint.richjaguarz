@@ -91,7 +91,7 @@ function AppSectionMain(props) {
     }
 
     useEffect (()=> {
-        if(answered) window.scrollTo(0, innerHeight+100);
+        if(answered) window.scrollTo(0, innerHeight+500);
         let selected = document.querySelectorAll('[aria-expanded*="true"]');
         let unSelected = document.querySelectorAll('[aria-expanded*="false"]');
         for(let i=0;i<selected.length;i++){
